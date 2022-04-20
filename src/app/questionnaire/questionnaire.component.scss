@@ -1,0 +1,29 @@
+$primary-color: #00ABE4;
+$secondary-color: #40DC7E;
+$gray: #F7F7F7;
+
+.question {
+    margin: 20px;
+}
+
+label {
+    width: 100%;
+    border-radius: 2px;
+}
+
+label:hover {
+    background-color: darken($color: white, $amount: 3);
+}
+
+.btn-primary {
+    background-color: $primary-color;
+    color: $gray;
+    border: none;
+    margin: 0 10px 10px 10px;
+    &:hover {
+        background-color: darken($color: $primary-color, $amount: 3);
+    }
+    &:focus {
+        box-shadow: none;
+    }
+}
