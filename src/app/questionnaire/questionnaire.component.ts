@@ -11,6 +11,7 @@ export class QuestionnaireComponent implements OnInit {
 	completed = false;
 	result = ''
 	points: number[] = new Array(this.questions.length).fill(0, 0)
+	
 	constructor() { }
 
 	ngOnInit(): void {
@@ -25,16 +26,18 @@ export class QuestionnaireComponent implements OnInit {
 
 	onSubmit(e: any) {
 		e.preventDefault()
+		
 		let score = 0
+		const max_score = this.questions.length * 4
 		for (let i = 0; i < this.points.length; i++) {
 			score += this.points[i]
 		}
-		console.log(score)
-		if (score < 10) {
+
+		if (score <= max_score * 0.30) {
 			this.result = "You are feeling terrible today. You should rest."
-		} else if (score < 20) {
+		} else if (score <= max_score * 0.5) {
 			this.result = "You are having a bad day."
-		} else if (score < 30) {
+		} else if (score <= max_score * 0.80) {
 			this.result = "You are feeling fine."
 		} else {
 			this.result = "You are having a great day. Keep up the good work!"
